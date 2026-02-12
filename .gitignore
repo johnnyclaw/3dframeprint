@@ -8,6 +8,7 @@
 ehthumbs.db
 Thumbs.db
 node_modules/
+tailwindcss
 
 # Shopify CLI files
 .shopify/

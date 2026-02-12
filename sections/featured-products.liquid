@@ -5,7 +5,7 @@
   </div>
   <div class="products-grid">
     {%- for product in collections[section.settings.collection].products limit: section.settings.limit -%}
-      <a href="{{ product.url }}" class="product-card">
+      <a href="{{ product.url }}" class="product-card" style="view-transition-name: product-{{ product.handle }};">
         <div class="product-card-image">
           {%- if product.featured_image -%}
             <img

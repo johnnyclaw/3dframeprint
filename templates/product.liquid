@@ -2,6 +2,7 @@
   <div class="product-gallery">
     {%- if product.featured_image -%}
       <img
+        class="product-image-transition"
         src="{{ product.featured_image | image_url: width: 1200 }}"
         alt="{{ product.featured_image.alt | escape }}"
         width="1200"
@@ -10,7 +11,7 @@
     {%- endif -%}
   </div>
   <div class="product-info">
-    <h1>{{ product.title }}</h1>
+    <h1 class="product-title-transition">{{ product.title }}</h1>
     <div class="product-price">{{ product.price | money }}</div>
     <div class="product-description">
       {{ product.description }}

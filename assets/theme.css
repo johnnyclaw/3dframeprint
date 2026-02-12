@@ -2,6 +2,75 @@
    3D Frame Print — Mondrian / Bauhaus Theme
    ========================================================================== */
 
+/* ==========================================================================
+   Native View Transitions API - MPA mode
+   ========================================================================== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.2s ease-in;
+}
+::view-transition-new(root) {
+  animation: fade-in 0.25s ease-out;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.product-image-transition {
+  view-transition-name: product-image;
+}
+::view-transition-old(product-image) {
+  animation: scale-fade-out 0.3s ease-in;
+}
+::view-transition-new(product-image) {
+  animation: scale-fade-in 0.35s ease-out;
+}
+
+@keyframes scale-fade-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+@keyframes scale-fade-in {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.product-title-transition {
+  view-transition-name: product-title;
+}
+
+.hero-transition {
+  view-transition-name: hero;
+}
+
+.card-transition {
+  view-transition-class: card;
+}
+::view-transition-old(card) {
+  animation: slide-fade-out 0.25s ease-in;
+}
+::view-transition-new(card) {
+  animation: slide-fade-in 0.3s ease-out;
+}
+
+@keyframes slide-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes slide-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* --- Custom Properties (Mondrian Palette) --- */
 :root {
   --color-red: #D42D2D;
