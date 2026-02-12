@@ -1,12 +1,9 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
-  "current": {}
+  "current": {
+    "color_primary_red": "#D42D2D",
+    "color_primary_blue": "#2851A4",
+    "color_primary_yellow": "#F5C518",
+    "color_background": "#FFFFFF",
+    "color_text": "#1A1A1A"
+  }
 }

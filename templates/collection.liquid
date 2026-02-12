@@ -1,0 +1,36 @@
+<div class="collection-header">
+  <h1>{{ collection.title }}</h1>
+  {%- if collection.description != blank -%}
+    <p>{{ collection.description }}</p>
+  {%- endif -%}
+</div>
+
+<div class="collection-grid">
+  {%- for product in collection.products -%}
+    <a href="{{ product.url }}" class="product-card">
+      <div class="product-card-image">
+        {%- if product.featured_image -%}
+          <img
+            src="{{ product.featured_image | image_url: width: 600 }}"
+            alt="{{ product.featured_image.alt | escape }}"
+            loading="lazy"
+            width="600"
+            height="600"
+          >
+        {%- endif -%}
+      </div>
+      <div class="product-card-body">
+        <div class="product-card-title">{{ product.title }}</div>
+        <div class="product-card-price">{{ product.price | money }}</div>
+      </div>
+    </a>
+  {%- else -%}
+    <p style="padding: 2rem;">No products found in this collection.</p>
+  {%- endfor -%}
+</div>
+
+{%- if paginate.pages > 1 -%}
+  <div style="padding: 2rem; text-align: center;">
+    {{ paginate | default_pagination }}
+  </div>
+{%- endif -%}

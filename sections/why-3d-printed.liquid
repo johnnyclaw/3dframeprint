@@ -1,0 +1,95 @@
+<section class="why-section">
+  <div class="section-header">
+    <h2>{{ section.settings.heading | default: 'Why 3D Printed?' }}</h2>
+  </div>
+  <div class="why-grid">
+    {%- for block in section.blocks -%}
+      <div class="why-card" {{ block.shopify_attributes }}>
+        <div class="why-card-icon">
+          {% render block.settings.icon %}
+        </div>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.description }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why 3D Printed",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why 3D Printed?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon snippet name",
+          "default": "icon-customize"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Fully Customizable"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Choose your exact size, color, and style. Every frame is made to your specifications."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why 3D Printed",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "icon-customize",
+            "title": "Fully Customizable",
+            "description": "Choose your exact size, color, and style. Every frame is made to your specifications."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "icon-sustainable",
+            "title": "Sustainable",
+            "description": "Made on demand with minimal waste. No excess inventory, no disposable packaging."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "icon-colors",
+            "title": "Unique Colors",
+            "description": "From classic black and white to bold primary colors — match any decor or mood."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "icon-precision",
+            "title": "Perfect Fit",
+            "description": "Precision-engineered to exact dimensions. Your art fits perfectly, every time."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

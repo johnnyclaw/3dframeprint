@@ -1,0 +1,55 @@
+<section class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <h1>{{ section.settings.heading | default: 'Frames as unique as your art' }}</h1>
+      <p>{{ section.settings.subheading | default: 'Precision 3D-printed picture frames. Customizable sizes, colors, and styles — crafted to order, never mass-produced.' }}</p>
+      <div>
+        <a href="{{ section.settings.button_url | default: '/collections/all' }}" class="btn btn-primary">
+          {{ section.settings.button_text | default: 'Shop Frames' }}
+        </a>
+      </div>
+    </div>
+    <div class="hero-block-red" aria-hidden="true"></div>
+    <div class="hero-block-blue" aria-hidden="true"></div>
+    <div class="hero-block-yellow" aria-hidden="true"></div>
+    <div class="hero-block-white" aria-hidden="true">
+      {% render 'mondrian-accent-1' %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frames as unique as your art"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Precision 3D-printed picture frames. Customizable sizes, colors, and styles — crafted to order, never mass-produced."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Frames"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

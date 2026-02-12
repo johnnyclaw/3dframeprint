@@ -1,0 +1,48 @@
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-content">
+      <h2>{{ section.settings.heading | default: 'Need a custom size?' }}</h2>
+      <p>{{ section.settings.text | default: "We print frames in any dimension. Tell us what you need and we'll make it happen — in any color you want." }}</p>
+      <a href="{{ section.settings.button_url | default: '/pages/custom-frames' }}" class="btn btn-primary">
+        {{ section.settings.button_text | default: 'Get a Custom Frame' }}
+      </a>
+    </div>
+    <div class="cta-accent" aria-hidden="true"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Need a custom size?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "We print frames in any dimension. Tell us what you need and we'll make it happen — in any color you want."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Get a Custom Frame"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Banner"
+    }
+  ]
+}
+{% endschema %}

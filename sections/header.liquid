@@ -1,66 +1,29 @@
-<header>
-  <h2 class="header__title">
-    {{ shop.name | link_to: routes.root_url }}
-  </h2>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="header-logo">
+      <span class="logo-3d">3D</span><span class="logo-frame">Frame</span><span class="logo-print">Print</span>
+    </a>
 
-  <div class="header__menu">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+    <nav class="header-nav" id="main-nav" aria-label="Main navigation">
+      <a href="/collections/all">Shop</a>
+      <a href="/pages/about">About</a>
+      <a href="/pages/custom-frames">Custom Frames</a>
+      <a href="/pages/contact">Contact</a>
+    </nav>
 
-  <div class="header__icons">
-    {% if shop.customer_accounts_enabled %}
-      {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
-    {% endif %}
+    <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">
+      &#9776;
+    </button>
 
-    <a href="{{ routes.cart_url }}">
-      {% if cart.item_count > 0 %}
-        <sup>{{ cart.item_count }}</sup>
-      {% endif %}
-
-      {{ 'icon-cart.svg' | inline_asset_content }}
+    <a href="/cart" class="header-cart" aria-label="Cart">
+      Cart ({{ cart.item_count }})
     </a>
   </div>
 </header>
 
-{% stylesheet %}
-  header {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  header a {
-    position: relative;
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  header a sup {
-    position: absolute;
-    left: 100%;
-    overflow: hidden;
-    max-width: var(--page-margin);
-  }
-  header svg {
-    width: 2rem;
-  }
-  header .header__menu,
-  header .header__icons {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
-  "name": "t:general.header",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
-    }
-  ]
+  "name": "Header",
+  "class": "section-header"
 }
 {% endschema %}
